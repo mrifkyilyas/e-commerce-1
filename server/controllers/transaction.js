@@ -44,10 +44,10 @@ class transactionController {
             } else {
                 user.cart.map(async (e) => {
                     let product = await Product.findById(e._id)
-                    let stock = product.stock
-                    let newStock = stock -= 1
+                    let quantity = product.quantity
+                    let newquantity = quantity -= 1
                     await Product.findByIdAndUpdate(e._id, {
-                        stock: newStock
+                        quantity: newquantity
                     }, { new: true, useFindAndModify: false })
                 })
 

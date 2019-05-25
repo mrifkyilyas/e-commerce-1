@@ -31,7 +31,7 @@ const multer = Multer({
 router.get('/',product.getProducts)
 router.get('/:id',product.getOneProduct)
 router.post('/',authentication,authenticationAdmin ,multer.single('file'), gcsMiddleware.sendUploadToGCS,product.createProduct)
-router.patch('/:id',authentication,authenticationAdmin,product.updateProduct)
+router.patch('/:id',authentication,authenticationAdmin,multer.single('file'), gcsMiddleware.sendUploadToGCS,product.updateProduct)
 router.delete('/:id',authentication,authenticationAdmin,product.delete)
 
 

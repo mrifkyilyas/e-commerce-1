@@ -68,7 +68,11 @@ class productController {
     }
 
     static updateProduct(req, res) {
-        const { name, quantity, image, price } = req.body
+        if (req.file) {
+            req.body.image = req.file.gcsUrl
+            
+        }
+       
         Product
             .findById(req.params.id)
             .then(found => {
@@ -78,7 +82,7 @@ class productController {
                     })
                 } else {
                     return Product.findByIdAndUpdate(req.params.id, {
-                        name, quantity, image, price
+                        ...req.body
                     }, { new: true })
                 }
             })

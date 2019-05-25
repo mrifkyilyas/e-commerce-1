@@ -19,9 +19,11 @@
           </a>
         </li>
         <li>
+           <router-link :to="'/edit-product/' + productnya._id">
           <a href data-tip="update product">
             <i class="fa fa-edit"></i>
           </a>
+           </router-link>
         </li>
       </ul>
       <ul class="social" v-else>

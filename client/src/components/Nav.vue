@@ -24,6 +24,11 @@
               <a class="nav-link" href="#">Transaction</a>
             </b-link>
           </li>
+           <li class="nav-item" v-if="isLogin==true && role=='admin'">
+            <b-link to="/new-product" exact>
+              <a class="nav-link" href="#">new Product</a>
+            </b-link>
+          </li>
           <li class="nav-item" v-if="isLogin==true && role !='admin'">
             <b-link to="/mytransaction" exact>
               <a class="nav-link" href="#">My Transaction</a>
@@ -56,7 +61,7 @@
               <a class="nav-link" href="#">login</a>
             </b-link>
           </li>
-          <li class="nav-item" v-if="isLogin === true">
+          <li class="nav-item" v-if="isLogin==true && role !='admin'">
             <b-link to="/cart" exact>
               <a class="nav-link" href="#">
                 <i class="fas fa-shopping-cart"></i>

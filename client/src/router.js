@@ -94,5 +94,23 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/AllTransactions.vue")
     },
+    {
+      path: "/new-product",
+      name: "new-product",
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./views/NewProduct.vue")
+    },
+    {
+      path: "/edit-product/:id",
+      name: "edit-product",
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./views/EditProduct.vue")
+    }
   ]
 });

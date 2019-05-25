@@ -2,7 +2,6 @@
   <div class="home">
     <Carousel/>
     <div class="container">
-      
       <div class="d-flex justify-content-center col-10 mx-auto bg-light" style="margin-top:-50px">
         <CardProduct v-for="product in allProductsz" :key="product._id" :productnya="product"/>
       </div>
@@ -19,6 +18,8 @@ import Card from "@/components/Card.vue";
 import Footer from "@/components/Footer.vue";
 import CardProduct from "@/components/CardProduct.vue";
 import { mapState } from "vuex";
+import Swal from "sweetalert2";
+import axios from "../api/axios";
 
 export default {
   name: "home",
@@ -30,18 +31,27 @@ export default {
     Footer,
     CardProduct
   },
-  computed: mapState([ "allProducts", "role"]),
+  computed: mapState(["allProducts", "role"]),
   data() {
     return {
       size: 12,
-      allProductsz : []
+      allProductsz: []
     };
   },
   created() {
-    this.$store.dispatch("getProducts");
-    this.allProductsz = this.allProducts.reverse().slice(0,4)
-
+    this.getProducts()
   },
-
+  methods: {
+    getProducts() {
+      axios
+        .get("/product")
+        .then(({ data }) => {
+          this.allProductsz = data.reverse().slice(0, 4);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
 };
 </script>
