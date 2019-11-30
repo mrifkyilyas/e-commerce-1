@@ -21,7 +21,6 @@ class transactionController {
                 res.status(201).json(data.rajaongkir.results[0].costs[0].cost[0].value)
             }
         } catch (err) {
-            // console.log(err.message)
             if (err.message === "404") {
                 res.status(404).json({
                     msg: 'the address you provided was not found'
@@ -35,7 +34,6 @@ class transactionController {
     }
     static async checkout(req, res) {
         try {
-            console.log(req.islogin.id)
             var user = await User.findById(req.islogin.id)
             if (!user) {
                 res.status(404).json({
@@ -110,7 +108,6 @@ class transactionController {
     }
 
     static updateStatus(req, res) {
-        console.log('masuk')
         Transaction
             .findById(req.params.id)
             .then(found => {

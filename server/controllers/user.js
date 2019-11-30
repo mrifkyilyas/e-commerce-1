@@ -94,13 +94,11 @@ class userController {
     }
 
     static addToCart(req, res) {
-        console.log(req.islogin)
         User
             .findByIdAndUpdate(req.islogin.id, {
                 $push: { cart: req.body.productId }
             }, { new: true })
             .then(updated => {
-                console.log('=====added product to cart=====', updated, '=========')
                 res.status(200).json(updated)
             })
             .catch(err => {

@@ -32,7 +32,6 @@ class productController {
     }
 
     static createProduct(req, res) {
-        console.log(req.body)
         if (req.file) {
             req.body.image = req.file.gcsUrl
         }

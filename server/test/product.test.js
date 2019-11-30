@@ -522,7 +522,6 @@ describe('Product tests', function () {
                         access_token: userToken
                     })
                     .end(function (err, res) {
-                        console.log(res.body,'================================')
                         expect(err).to.be.null
                         expect(res).to.have.status(401)
                         expect(res.body).to.be.an('object')
