@@ -16,10 +16,10 @@ const multer = Multer({
         var extFile = path.extname(file.originalname);
         if(extFile !== ".jpg" && extFile !== ".jpeg" && extFile !== ".png" && extFile !== ".gif"){           
             // skip uploadnya
-            console.log('skip')
+            // console.log('skip')
             inst(null, false)
         } else {
-            console.log('masuk')
+            // console.log('masuk')
             inst(null, true)
         }
     }

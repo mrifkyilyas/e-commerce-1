@@ -55,7 +55,6 @@ export default {
         });
     },
     addToCart() {
-      console.log("masok add to cart whoooi");
       if (localStorage.getItem("access_token")  !== null) {
         if (this.product.quantity > 0) {
           axios

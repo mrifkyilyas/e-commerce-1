@@ -51,7 +51,6 @@ export default {
         .then(({ data }) => {
           this.$refs.email.value = "";
           this.$refs.password.value = "";
-          console.log(data);
           Swal.fire({
             type: "success",
             title: "Login Successfully",

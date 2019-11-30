@@ -40,11 +40,9 @@ export default {
   },
   methods: {
     handleFileUpload(event) {
-      console.log("masuk file upload", this.$refs.file.files[0]);
       this.file = this.$refs.file.files[0];
     },
     addProduct() {
-      console.log(this.file);
       let formData = new FormData();
       formData.append("name", this.$refs.name.value);
       formData.append("quantity", this.$refs.quantity.value);
@@ -57,7 +55,6 @@ export default {
           }
         })
         .then(({ data }) => {
-          console.log("berhasil");
           this.$refs.name = "";
           this.$refs.price = "";
           this.$refs.quantity = "";

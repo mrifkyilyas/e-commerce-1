@@ -88,7 +88,6 @@ export default {
           }
         })
         .then(({ data }) => {
-          console.log(data);
           data.map(e => {
             if (e.status === false) {
               e.status = "pending";

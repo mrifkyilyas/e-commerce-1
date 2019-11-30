@@ -78,7 +78,6 @@ import axios from "../api/axios";
 export default {
   created() {
     if (localStorage.getItem("access_token")) {
-      console.log("masuk sini");
       this.getCart();
     } else {
       this.$router.push("/login");
@@ -100,7 +99,6 @@ export default {
         })
         .then(({ data }) => {
           this.carts = data.cart;
-          console.log(this.carts);
           data.cart.map(e => {
             this.totalPrice += Number(e.price);
           });

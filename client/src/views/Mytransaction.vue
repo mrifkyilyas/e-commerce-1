@@ -93,7 +93,6 @@ export default {
           }
         })
         .then(({ data }) => {
-            console.log(data)
           data.map(e => {
             if (e.status === false) {
               e.status = "pending";
@@ -108,8 +107,6 @@ export default {
         });
     },
     updateStatus(id) {
-      console.log(id)
-      console.log(localStorage.access_token)
       axios
         .patch(`/transaction/${id}`,{}, {
           headers: {

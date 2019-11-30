@@ -49,7 +49,6 @@ export default {
   },
   methods: {
     handleFileUpload(event) {
-      console.log("masuk file upload", this.$refs.file.files[0]);
       this.file = this.$refs.file.files[0];
     },
     getOneProduct() {
@@ -64,7 +63,6 @@ export default {
           }
         )
         .then(({ data }) => {
-          console.log(data);
           this.name = data.name;
           this.price = data.price;
           this.quantity = data.quantity;
@@ -79,7 +77,6 @@ export default {
         });
     },
     editProduct() {
-      console.log(this.file);
       let formData = new FormData();
       formData.append("name", this.name);
       formData.append("quantity", this.quantity);
@@ -92,7 +89,6 @@ export default {
           }
         })
         .then(({ data }) => {
-          console.log("berhasil");
           this.name = "";
           this.price = "";
           this.quantity = "";

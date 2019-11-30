@@ -38,7 +38,6 @@ export default {
   components: {},
   methods: {
     registerAct() {
-      console.log(this.$refs.name.value);
       axios({
         method: "POST",
         url: "/user/register",

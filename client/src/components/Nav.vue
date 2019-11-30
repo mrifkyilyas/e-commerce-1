@@ -90,7 +90,6 @@ export default {
       });
       this.$store.dispatch("logout");
       this.$router.push("/");
-      console.log(this.name);
     }
   }
 };
